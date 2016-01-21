@@ -7,7 +7,11 @@ https://github.com/quazardous/silex-pack
 ## Install
 
 ```bash
+# changeme
+cd /path/to/htdocs
+
 git clone git@github.com:quazardous/silex-pack-demo.git
+cd silex-pack-demo
 composer update
 mkdir -p app/db/
 touch app/db/acme_demo.db
@@ -20,9 +24,9 @@ php ./app/console.php pack:symlinks
 
 ## Test
 
-- http://localhost/acme/demo/hello/david : test translation and routing
-- http://localhost/acme/demo/foo : test template override and assets
-- http://localhost/acme/demo/items : test with doctrine
+- http://localhost/silex-pack-demo/web/acme/demo/hello/david : test translation and routing
+- http://localhost/silex-pack-demo/web/acme/demo/foo : test template override and assets
+- http://localhost/silex-pack-demo/web/acme/demo/items : test with doctrine
 
 
 ## Play
