@@ -20,7 +20,7 @@ php ./app/console.php pack:symlinks
 
 ## Test
 
-- http://localhost/acme/demo/hello/david : test transaltion and routing
+- http://localhost/acme/demo/hello/david : test translation and routing
 - http://localhost/acme/demo/foo : test template override and assets
 - http://localhost/acme/demo/items : test with doctrine
 
