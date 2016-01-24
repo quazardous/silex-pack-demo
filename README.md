@@ -5,6 +5,8 @@ See [Silex pack](https://github.com/quazardous/silex-pack) for more informations
 
 The demo uses the [Silex user pack](ttps://github.com/quazardous/silex-user-pack) to test secure access.
 
+It shows how to implement the user authentication mercanism with forms and database users.
+
 ## Install
 
 ```bash
@@ -33,6 +35,7 @@ java -jar app/bin/fakeSMTP-2.0.jar -m -p 2525
 - http://localhost/silex-pack-demo/web/acme/demo/foo : test template override and assets
 - http://localhost/silex-pack-demo/web/acme/demo/items : test with doctrine
 - http://localhost/silex-pack-demo/web/acme : user pack with security/firewall
+    - users: **johndoe/johndoe** ans **admin/admin**
 
 
 ## Play
