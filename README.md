@@ -3,7 +3,7 @@ A POC Silex pack app (try to say it fast, not easy...) !
 
 See [Silex pack](https://github.com/quazardous/silex-pack) for more informations.
 
-The demo uses the [Silex user pack](ttps://github.com/quazardous/silex-user-pack) to test secure access.
+The demo uses the [Silex user pack](https://github.com/quazardous/silex-user-pack) to test secure access.
 
 It shows how to implement the user authentication mercanism with forms and database users.
 
