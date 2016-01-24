@@ -1,0 +1,19 @@
+{% extends '@AcmeSecure/default/layout.html.twig' %}
+
+{% block content %}
+<p>ADMIN</p>
+<p>
+{% if user %}
+{{ user.username|e }} :
+{% for r in user.roles %}
+{{ r|e }} 
+{% endfor %}
+{% endif %}
+</p>
+<p>
+<a href="{{ path('acme_secured_logout') }}">Logout</a>
+</p>
+<p>
+<a href="{{ path('acme_secure.secured') }}">Secured</a>
+</p>
+{% endblock content %}
