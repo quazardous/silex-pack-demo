@@ -23,7 +23,6 @@ $app['session.storage.handler'] = function ($app) {
 $app->register(new CsrfServiceProvider());
 $app->register(new FormServiceProvider());
 $app->register(new RememberMeServiceProvider());
-
 $app->register(new ServiceControllerServiceProvider());
 
 return $app;

@@ -3,3 +3,4 @@
 /.project
 /composer.lock
 /vendor/
+/.*.md.html

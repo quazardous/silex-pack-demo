@@ -14,8 +14,8 @@ use Assetic\Filter\Yui\JsCompressorFilter;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
 use Quazardous\Silex\UserPack\SilexUserPack;
-use Acme\AdminPack\AcmeAdminPack;
 use Acme\SecurePack\AcmeSecurePack;
+use Silex\Provider\MonologServiceProvider;
 
 /**
  * @var \Acme\Application $app;
@@ -25,6 +25,10 @@ $app = new Application();
 $app['debug'] = true;
 
 $app['path_to_web'] = __DIR__ . '/../web';
+
+$app->register(new MonologServiceProvider(), [
+    'monolog.logfile' => __DIR__.'/demo.log',
+]);
 
 $app->register(new DoctrineServiceProvider, [
     'db.options' => [
@@ -154,6 +158,7 @@ $app->register(new AcmeDemoPack(), [
     'acme_demo.mount_prefix' => '/acme/demo',
 ]);
 
+// we register the secure pack
 $app->register(new AcmeSecurePack(), [
     'acme_secure.mount_prefix' => '/acme',
 ]);
