@@ -35,7 +35,7 @@ java -jar app/bin/fakeSMTP-2.0.jar -m -p 2525
 - http://localhost/silex-pack-demo/web/acme/demo/foo : test template override and assets
 - http://localhost/silex-pack-demo/web/acme/demo/items : test with doctrine
 - http://localhost/silex-pack-demo/web/acme : user pack with security/firewall
-    - users: **johndoe/johndoe** ans **admin/admin**
+    - users: **johndoe@sup.net/johndoe** ans **admin@sup.net/admin**
 
 
 ## Play

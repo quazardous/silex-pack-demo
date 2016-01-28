@@ -16,6 +16,8 @@ use Silex\Provider\SwiftmailerServiceProvider;
 use Quazardous\Silex\UserPack\SilexUserPack;
 use Acme\SecurePack\AcmeSecurePack;
 use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
 
 /**
  * @var \Acme\Application $app;
@@ -83,6 +85,10 @@ $app->extend('assetic.filter_manager', function ($fm, $app) {
     return $fm;
 });
 
+$app->register(new ValidatorServiceProvider());
+
+$app->register(new DoctrineOrmManagerRegistryProvider());
+
 // this will make use of the magic _locale url parameter
 $app->register(new LocaleServiceProvider);
 
@@ -136,13 +142,17 @@ $app->register(new SilexUserPack(), [
             // 'check_path' => '/check_login', // default, prefixed with 'secured_mount_prefix'
             // 'logout_path' => '/lougout', // default, prefixed with 'secured_mount_prefix'
             // 'invalidate_session' => true, // default
+            'use_email_as_username' => true, // email as username
+            'register_roles' => 'ROLE_USER',
         ],
-    ]    
+    ],
+    'user.mailer_from' => 'no-reply@test.net',
 ]);
 
 $app->register(new SwiftmailerServiceProvider(), [
     'swiftmailer.options' => [
         'host' => 'localhost',
+        // used with fakeSMTP
         'port' => '2525',
     ]]);
 
@@ -162,6 +172,5 @@ $app->register(new AcmeDemoPack(), [
 $app->register(new AcmeSecurePack(), [
     'acme_secure.mount_prefix' => '/acme',
 ]);
-
 
 return $app;

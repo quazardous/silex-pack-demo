@@ -12,6 +12,7 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
 use Silex\Provider\CsrfServiceProvider;
 use Silex\Provider\FormServiceProvider;
+use Quazardous\Form\PasswordTypeExtension;
 
 $app->register(new SessionServiceProvider());
 
@@ -24,5 +25,12 @@ $app->register(new CsrfServiceProvider());
 $app->register(new FormServiceProvider());
 $app->register(new RememberMeServiceProvider());
 $app->register(new ServiceControllerServiceProvider());
+
+// You may want to be able to render password value...
+$app->extend('form.type.extensions', function ($extensions) use ($app) {
+    $extensions[] = new PasswordTypeExtension();
+    return $extensions;
+});
+    
 
 return $app;
