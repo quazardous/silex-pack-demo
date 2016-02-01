@@ -43,6 +43,16 @@ $app->register(new DoctrineOrmServiceProvider, [
     'orm.proxies_dir' => __DIR__ . '/cache/orm/proxies',
 ]);
 
+
+// Add the ResolveTargetEntityListener
+$app->extend('db.event_manager', function ($evs) {
+    $rtel = new \Doctrine\ORM\Tools\ResolveTargetEntityListener;
+    // Adds a target-entity class
+    $rtel->addResolveTargetEntity('Quazardous\Silex\UserPack\Entity\UserInterface', 'Quazardous\Silex\UserPack\Entity\User', []);
+    $evs->addEventListener(Doctrine\ORM\Events::loadClassMetadata, $rtel);
+    return $evs;
+});
+
 // we register a main twig.path
 // we will search for overriden template in app/views/<namespace> which is app/views/AcmeDemo for our little demo pack
 $app->register(new TwigServiceProvider(), ['twig.path' => __DIR__ . '/views']);
