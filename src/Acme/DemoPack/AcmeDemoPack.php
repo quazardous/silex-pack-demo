@@ -47,7 +47,7 @@ class AcmeDemoPack implements JetPackInterface
     }
 
     // helper function to add Twig filters and functions
-    public function getTwigExtensions()
+    public function getTwigExtensions(Container $app)
     {
         return [
             new \Twig_SimpleFilter('fooize', function ($string) {
@@ -60,7 +60,7 @@ class AcmeDemoPack implements JetPackInterface
     }
 
     // returns commands to add to the console
-    public function getConsoleCommands()
+    public function getConsoleCommands(Container $app)
     {
         return [
             new FixtureCommand()
