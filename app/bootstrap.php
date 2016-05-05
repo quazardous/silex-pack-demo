@@ -119,7 +119,6 @@ $app->register(new SecurityServiceProvider(), [
                 'target_url' => '/acme',
             ], 
             'users' => null, // if empty or not set, user pack will provide it for you with the built in Doctrine implementation.
-            // 'register_path' => false, // uncomment to disable register
         ],
     ],
     'security.role_hierarchy' => [
@@ -145,7 +144,7 @@ $app->register(new SilexUserPack(), [
             // 'invalidate_session' => true, // default
             'use_email_as_username' => true, // email as username
             'register_roles' => 'ROLE_USER',
-            'register_path' => null,
+            // 'register_path' => null, // uncomment to disable register form
         ],
     ],
     'user.mailer_from' => 'no-reply@test.net',
