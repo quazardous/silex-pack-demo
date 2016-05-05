@@ -100,7 +100,7 @@ $app->register(new TranslationServiceProvider(), [
 // provide security
 $app->register(new SecurityServiceProvider(), [
     'security.firewalls' => [
-        'secured' => array(
+        'secured' => [
             'pattern' => '^/acme/secured',
             'form' => [
                 // user pack will populate the missing mandatory options but you have to set the 'form' key.
@@ -119,7 +119,8 @@ $app->register(new SecurityServiceProvider(), [
                 'target_url' => '/acme',
             ], 
             'users' => null, // if empty or not set, user pack will provide it for you with the built in Doctrine implementation.
-        ),
+            // 'regiter_path' => false, // uncomment to disable register
+        ],
     ],
     'security.role_hierarchy' => [
         'ROLE_ADMIN' => ['ROLE_USER'],
@@ -144,6 +145,7 @@ $app->register(new SilexUserPack(), [
             // 'invalidate_session' => true, // default
             'use_email_as_username' => true, // email as username
             'register_roles' => 'ROLE_USER',
+            'register_path' => null,
         ],
     ],
     'user.mailer_from' => 'no-reply@test.net',
