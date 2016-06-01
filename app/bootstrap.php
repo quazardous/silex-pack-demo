@@ -152,9 +152,17 @@ $app->register(new SilexUserPack(), [
 
 $app->register(new SwiftmailerServiceProvider(), [
     'swiftmailer.options' => [
-        'host' => 'localhost',
         // used with fakeSMTP
-        'port' => '2525',
+        // 'host' => 'localhost',
+        // 'port' => '2525',
+        
+        // mailtrap.io
+        'transport' => 'smtp',
+        'host' => '52.20.34.166',  //'mailtrap.io',
+        'port' => 2525,
+        'username' => 'x',
+        'password' => 'x',
+        'auth_mode' => 'cram-md5',
     ]]);
 
 // we register our demo pack:
